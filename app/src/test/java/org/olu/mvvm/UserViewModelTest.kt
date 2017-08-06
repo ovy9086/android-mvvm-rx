@@ -5,14 +5,14 @@ import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.`when`
-import org.olu.mvvm.data.User
-import org.olu.mvvm.datamodel.UserDataModel
-import org.olu.mvvm.repository.api.UserApi
+import org.olu.mvvm.datamodel.api.UserApi
+import org.olu.mvvm.datamodel.data.User
+import org.olu.mvvm.viewmodel.UserDataModel
 import java.util.*
 import kotlin.test.assertEquals
 
 
-class UserDataModelTest {
+class UserViewModelTest {
 
     lateinit var userDataModel: UserDataModel
     lateinit var userApi: UserApi

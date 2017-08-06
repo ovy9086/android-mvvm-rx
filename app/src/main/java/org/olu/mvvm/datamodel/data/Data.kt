@@ -1,4 +1,4 @@
-package org.olu.mvvm.data
+package org.olu.mvvm.datamodel.data
 
 data class User(
         val email: String,

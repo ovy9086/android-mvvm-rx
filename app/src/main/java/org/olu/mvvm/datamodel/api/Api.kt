@@ -1,7 +1,7 @@
-package org.olu.mvvm.repository.api
+package org.olu.mvvm.datamodel.api
 
 import io.reactivex.Observable
-import org.olu.mvvm.data.User
+import org.olu.mvvm.datamodel.data.User
 import retrofit2.http.GET
 
 interface UserApi {

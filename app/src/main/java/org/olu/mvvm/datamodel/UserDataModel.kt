@@ -1,8 +1,8 @@
-package org.olu.mvvm.datamodel
+package org.olu.mvvm.viewmodel
 
 import io.reactivex.Observable
-import org.olu.mvvm.data.User
-import org.olu.mvvm.repository.api.UserApi
+import org.olu.mvvm.datamodel.data.User
+import org.olu.mvvm.datamodel.api.UserApi
 import timber.log.Timber
 
 class UserDataModel(val userApi: UserApi) {
