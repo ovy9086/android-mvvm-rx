@@ -1,11 +1,11 @@
 package org.olu.mvvm.viewmodel
 
 import io.reactivex.Observable
-import org.olu.mvvm.datamodel.data.User
-import org.olu.mvvm.datamodel.api.UserApi
+import org.olu.mvvm.repository.data.User
+import org.olu.mvvm.repository.api.UserApi
 import timber.log.Timber
 
-class UserDataModel(val userApi: UserApi) {
+class UserRepository(val userApi: UserApi) {
 
     var cachedUsers = emptyList<User>()
 

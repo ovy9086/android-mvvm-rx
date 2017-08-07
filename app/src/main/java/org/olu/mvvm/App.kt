@@ -1,8 +1,8 @@
 package org.olu.mvvm
 
 import android.app.Application
-import org.olu.mvvm.datamodel.api.UserApi
-import org.olu.mvvm.viewmodel.UserDataModel
+import org.olu.mvvm.repository.api.UserApi
+import org.olu.mvvm.viewmodel.UserRepository
 import org.olu.mvvm.viewmodel.UserListViewModel
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -14,7 +14,7 @@ class App : Application() {
     companion object {
         private lateinit var retrofit: Retrofit
         private lateinit var userApi: UserApi
-        private lateinit var userDataModel: UserDataModel
+        private lateinit var userRepository: UserRepository
         private lateinit var userListViewModel: UserListViewModel
 
         fun injectUserApi() = userApi
@@ -34,8 +34,8 @@ class App : Application() {
                 .build()
 
         userApi = retrofit.create(UserApi::class.java)
-        userDataModel = UserDataModel(userApi)
-        userListViewModel = UserListViewModel(userDataModel)
+        userRepository = UserRepository(userApi)
+        userListViewModel = UserListViewModel(userRepository)
 
     }
 }
