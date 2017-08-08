@@ -3,7 +3,6 @@ package org.olu.mvvm.view
 import android.support.v4.app.Fragment
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
-import java.util.*
 
 open class MvvmFragment : Fragment() {
 
@@ -16,6 +15,6 @@ open class MvvmFragment : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        subscriptions.dispose()
+        subscriptions.clear()
     }
 }
