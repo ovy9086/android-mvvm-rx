@@ -2,11 +2,13 @@ package org.olu.mvvm
 
 import com.nhaarman.mockito_kotlin.mock
 import io.reactivex.Observable
+import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.`when`
 import org.olu.mvvm.repository.api.UserApi
 import org.olu.mvvm.repository.data.User
+import org.olu.mvvm.repository.db.UserDao
 import org.olu.mvvm.viewmodel.UserRepository
 import java.util.*
 import kotlin.test.assertEquals
@@ -16,11 +18,14 @@ class UserRepositoryTest {
 
     lateinit var userRepository: UserRepository
     lateinit var userApi: UserApi
+    lateinit var userDao: UserDao
 
     @Before
     fun setup() {
         userApi = mock()
-        userRepository = UserRepository(userApi)
+        userDao = mock()
+        `when`(userDao.getUsers()).thenReturn(Single.just(emptyList()))
+        userRepository = UserRepository(userApi, userDao)
     }
 
     @Test
