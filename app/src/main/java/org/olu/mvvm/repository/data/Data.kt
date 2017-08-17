@@ -5,7 +5,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "users")
-data class User constructor(
+data class User(
         @PrimaryKey
         @ColumnInfo(name = "email")
         val email: String,
