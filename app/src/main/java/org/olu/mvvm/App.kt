@@ -46,7 +46,5 @@ class App : Application() {
 
         userRepository = UserRepository(userApi, appDatabase.userDao())
         userListViewModel = UserListViewModel(userRepository)
-
-
     }
 }
