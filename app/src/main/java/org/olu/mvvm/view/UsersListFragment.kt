@@ -14,6 +14,7 @@ import org.olu.mvvm.R
 import org.olu.mvvm.viewmodel.data.UsersList
 import timber.log.Timber
 import java.net.ConnectException
+import java.net.UnknownHostException
 
 class UsersListFragment : MvvmFragment() {
 
@@ -29,7 +30,7 @@ class UsersListFragment : MvvmFragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    Timber.d("Received UIModel with ${it.users.size} users.")
+                    Timber.d("Received UIModel $it users.")
                     showUsers(it)
                 }, {
                     Timber.w(it)
@@ -40,7 +41,7 @@ class UsersListFragment : MvvmFragment() {
     fun showUsers(data: UsersList) {
         if (data.error == null) {
             usersList.adapter = ArrayAdapter(context, android.R.layout.simple_list_item_1, data.users)
-        } else if (data.error is ConnectException) {
+        } else if (data.error is ConnectException || data.error is UnknownHostException) {
             Timber.d("No connection, maybe inform user that data loaded from DB.")
         } else {
             showError()
